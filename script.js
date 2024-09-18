@@ -10,6 +10,24 @@ onload = () => {
   document.addEventListener('click', () => {
     audio.play().catch(error => {
       console.log("Error al reproducir el audio: ", error);
+      
+const images = ['imagen1.jpg', 'imagen2.jpg', 'imagen3.jpg', 'imagen4.jpg'];
+const bubbles = document.querySelectorAll('.bubble img');
+
+// Cambia la imagen de cada burbuja aleatoriamente
+function changeImage() {
+  bubbles.forEach((bubble, index) => {
+    setTimeout(() => {
+      const randomImage = images[Math.floor(Math.random() * images.length)];
+      bubble.src = randomImage;
+    }, index * 2000); // Cambia la imagen cada 2 segundos
+  });
+}
+
+// Inicia la animación de cambio de imágenes
+setInterval(changeImage, 5000);
+
+      
     });
   });
 };
